@@ -5,3 +5,4 @@ pd.DataFrame()
 
 df = pd.read_csv("D:\RUBEN\Downloads\Spotify 2010 - 2021 Top 100.csv")
 df.info()
+print(df)
