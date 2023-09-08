@@ -17,7 +17,20 @@ class PlayList():
         lista = data[data[filtro] == filtro1]
         return lista
     
+    def calcula_duracion(filtro, filtro1):
+        duracion = data[data[filtro] == filtro1]["dur"].sum()  
+        horas = duracion//3600
+        sobrante1 =duracion%3600
+        minutos = sobrante1//60
+        sobrante2 = sobrante1%60
+        duracion_total = horas, minutos, sobrante2
+        return duracion_total
+    
+    
 indie = PlayList.generador_de_listas("top genre", "indie rock")
+indie_duracion = PlayList.calcula_duracion("top genre", "indie rock")
     
     
-print(indie)    
+print(indie)   
+
+print(indie_duracion) 
