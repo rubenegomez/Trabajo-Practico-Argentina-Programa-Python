@@ -66,4 +66,5 @@ hip_hop_cant_temas = PlayList.list_cant_item("top genre", "hip hop")
 #print(lista_generica)
 
 #print(lista_by_artista)
-print(f"la cantidad de temas hip hop son {hip_hop_cant_temas}")
+
+#print(f"la cantidad de temas hip hop son {hip_hop_cant_temas}")
