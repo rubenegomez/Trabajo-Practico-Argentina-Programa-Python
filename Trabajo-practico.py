@@ -38,8 +38,10 @@ class PlayList():
         return lista_ordenada
     
     def list_cant_item(filtro, filtro1):
-        cantidad = data[data[filtro]== filtro1].count(axis=0)
+        cantidad = len(data[data[filtro]== filtro1]["title"].to_list())
         return cantidad
+    
+
     
 indie = PlayList.generador_de_listas("top genre", "indie rock")
 indie_duracion = PlayList.calcula_duracion("top genre", "indie rock")
@@ -47,6 +49,8 @@ indie_ordenada = PlayList.ordenar_lista("top genre", "indie rock", "title", "des
 indie_ordenada1 = PlayList.ordenar_lista("top genre", "indie rock", "artist", "asendente")
 indie_cantidad_temas = PlayList.list_cant_item("top genre", "indie rock")
 lista_generica = PlayList.lista_generica()
+lista_by_artista =PlayList.generador_de_listas("artist", "Eminem")
+hip_hop_cant_temas = PlayList.list_cant_item("top genre", "hip hop")
 
     
 #print(indie)   
@@ -57,6 +61,9 @@ lista_generica = PlayList.lista_generica()
 
 #print(indie_ordenada1)
 
-#print(indie_cantidad_temas)
+#print(f"la cantidad de temas es {indie_cantidad_temas}")
 
 #print(lista_generica)
+
+#print(lista_by_artista)
+print(f"la cantidad de temas hip hop son {hip_hop_cant_temas}")
