@@ -41,8 +41,15 @@ class PlayList():
         cantidad = len(data[data[filtro]== filtro1]["title"].to_list())
         return cantidad
     
-
-    
+class AnalicisArchivo():
+    def __init__(self, columna ):
+        self.columna = columna
+        
+    def generos(columna):
+        cant_genero = data[columna].value_counts().to_list()
+        return cant_genero
+        
+            
 indie = PlayList.generador_de_listas("top genre", "indie rock")
 indie_duracion = PlayList.calcula_duracion("top genre", "indie rock")
 indie_ordenada = PlayList.ordenar_lista("top genre", "indie rock", "title", "desendente")
@@ -51,6 +58,7 @@ indie_cantidad_temas = PlayList.list_cant_item("top genre", "indie rock")
 lista_generica = PlayList.lista_generica()
 lista_by_artista =PlayList.generador_de_listas("artist", "Eminem")
 hip_hop_cant_temas = PlayList.list_cant_item("top genre", "hip hop")
+genero_mas_usado = AnalicisArchivo.generos("top genre")
 
     
 #print(indie)   
@@ -68,3 +76,5 @@ hip_hop_cant_temas = PlayList.list_cant_item("top genre", "hip hop")
 #print(lista_by_artista)
 
 #print(f"la cantidad de temas hip hop son {hip_hop_cant_temas}")
+
+print(genero_mas_usado)
