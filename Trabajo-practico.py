@@ -27,8 +27,11 @@ class PlayList():
         sobrante1 =duracion%3600
         minutos = sobrante1//60
         sobrante2 = sobrante1%60
-        duracion_total = "Horas", horas,"Minutos", minutos,"segundos", sobrante2
-        return duracion_total
+        horas = horas 
+        minutos = minutos 
+        segundos = sobrante2
+        return horas, minutos, segundos
+     
     
     def ordenar_lista(filtro, filtro1, filtro2, orden):
         ordenar = True
@@ -46,9 +49,12 @@ class AnalicisArchivo():
         self.columna = columna
         
     def generos(columna):
-        cant_genero = data[columna].value_counts().to_list()
+        cant_genero = data[columna].value_counts()
         return cant_genero
         
+    def genero2(columna): 
+        gen = data.groupby(columna)   
+        return gen
             
 indie = PlayList.generador_de_listas("top genre", "indie rock")
 indie_duracion = PlayList.calcula_duracion("top genre", "indie rock")
@@ -59,6 +65,7 @@ lista_generica = PlayList.lista_generica()
 lista_by_artista =PlayList.generador_de_listas("artist", "Eminem")
 hip_hop_cant_temas = PlayList.list_cant_item("top genre", "hip hop")
 genero_mas_usado = AnalicisArchivo.generos("top genre")
+genero_mas_usado_2 = AnalicisArchivo.genero2("top genre")
 
     
 #print(indie)   
@@ -77,4 +84,4 @@ genero_mas_usado = AnalicisArchivo.generos("top genre")
 
 #print(f"la cantidad de temas hip hop son {hip_hop_cant_temas}")
 
-print(genero_mas_usado)
+print(f"El genero que mas aparese en el archivo es {genero_mas_usado}")
