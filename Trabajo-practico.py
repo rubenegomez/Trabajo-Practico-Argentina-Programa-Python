@@ -3,7 +3,13 @@ import numpy as np
 import datetime as dt
 pd.DataFrame()
 
-data = pd.read_csv("Spotify 2010 - 2021 Top 100.csv", sep=",")
+nombre_archivo = "Spotify 2010 - 2021 Top 100.csv"
+
+def leer_archivo(nombre_archivo):
+    data = pd.read_csv(nombre_archivo, sep=",")
+    return data
+
+data = leer_archivo(nombre_archivo)
 
 class PlayList():
     def __init__(self,filtro, filtro1, filtro2, orden):
@@ -50,11 +56,14 @@ class AnalicisArchivo():
         
     def generos(columna):
         cant_genero = data[columna].value_counts()
-        return cant_genero
+        return 
+    
+    def ordenar_lista (filtro):
+       list_ord = data.sort_values(by=filtro)
+       return list_ord
         
-    def genero2(columna): 
-        gen = data.groupby(columna)   
-        return gen
+    
+       
             
 indie = PlayList.generador_de_listas("top genre", "indie rock")
 indie_duracion = PlayList.calcula_duracion("top genre", "indie rock")
@@ -65,9 +74,15 @@ lista_generica = PlayList.lista_generica()
 lista_by_artista =PlayList.generador_de_listas("artist", "Eminem")
 hip_hop_cant_temas = PlayList.list_cant_item("top genre", "hip hop")
 genero_mas_usado = AnalicisArchivo.generos("top genre")
-genero_mas_usado_2 = AnalicisArchivo.genero2("top genre")
+artista_mas_aparece= AnalicisArchivo.generos("artist")
+tema_mayor_duracion = AnalicisArchivo.ordenar_lista("dur")
+canciones_de_Imagine_Dragon = PlayList.generador_de_listas("artist", "Imagine Dragons")
+cantidad_temas_Imagine_Dragons= PlayList.list_cant_item("artist", "Imagine Dragons")
+
 
     
+#print(leer_archivo(nombre_archivo))  
+  
 #print(indie)   
 
 #print(f"La lista dura {indie_duracion}")
@@ -84,4 +99,16 @@ genero_mas_usado_2 = AnalicisArchivo.genero2("top genre")
 
 #print(f"la cantidad de temas hip hop son {hip_hop_cant_temas}")
 
-print(f"El genero que mas aparese en el archivo es {genero_mas_usado}")
+#print(f"El genero que mas aparese en el archivo es {genero_mas_usado}")
+
+#print(f"el tema de mayor duracion es {tema_mayor_duracion}")
+
+#print(f"El artista que mas aparese es {artista_mas_aparece}")
+
+#print(tema_mayor_duracion)
+
+#print(AnalicisArchivo.ordenar_lista)
+
+#print(canciones_de_Imagine_Dragon)
+
+#print(f"la cantidad de temas de Imagine Dragons son {cantidad_temas_Imagine_Dragons}")
