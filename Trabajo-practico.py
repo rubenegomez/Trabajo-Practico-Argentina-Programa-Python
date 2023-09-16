@@ -60,9 +60,89 @@ class AnalicisArchivo():
     
     def ordenar_lista (filtro):
        list_ord = data.sort_values(by=filtro)
-       return list_ord
+       return 
+   
+    def año_con_mayor_duracion (filtro):
+        filtroa = data[filtro].to_list()
+        filtrob = set(filtroa)
+        duracionporanio= []
         
+        for anio in filtrob:
+                
+         duracionporanio.append(PlayList.calcula_duracion(filtro, anio ))
+         
+        max = duracionporanio [0]
+        for x in duracionporanio:
+            if x > max:
+                max = x 
+         
+        return max
     
+    
+    def año_con_mayor_duracion_1 (filtro):
+        filtroa = data[filtro].to_list()
+        filtrob = set(filtroa)
+        duracionporanio= []
+        
+        for anio in filtrob:
+                
+         duracionporanio.append(PlayList.calcula_duracion(filtro, anio ))
+         
+        min = duracionporanio [0]
+        for x in duracionporanio:
+            if x < min:
+                min = x 
+         
+        return min
+    
+    def genero_de_mayor_duracion(filtro):
+        filtroa = data[filtro].to_list()
+        filtrob = set(filtroa)
+        duracionporgenero = []
+        
+        for gen in filtrob:
+            duracionporgenero.append(PlayList.calcula_duracion(filtro, gen))
+            
+        max = duracionporgenero[0]
+        for x in duracionporgenero:
+            if x > max:
+                max = x
+        return max
+    
+    
+    def genero_de_mayor_duracion_1(filtro):
+        filtroa = data[filtro].to_list()
+        filtrob = set(filtroa)
+        duracionporgenero = []
+        
+        for gen in filtrob:
+            duracionporgenero.append(PlayList.calcula_duracion(filtro, gen))
+            
+        min = duracionporgenero[0]
+        for x in duracionporgenero:
+            if x < min:
+                min = x
+        return min
+    
+    
+    def promediogenero(filtro,filtro1):
+        duracion = AnalicisArchivo.genero_de_mayor_duracion(filtro)
+        canttemas = PlayList.list_cant_item(filtro, filtro1)
+        
+        #promedio = duracion / canttemas
+        
+        #return promedio
+    
+    
+    
+    
+         
+     
+         
+
+        
+
+        
        
             
 indie = PlayList.generador_de_listas("top genre", "indie rock")
@@ -78,6 +158,15 @@ artista_mas_aparece= AnalicisArchivo.generos("artist")
 tema_mayor_duracion = AnalicisArchivo.ordenar_lista("dur")
 canciones_de_Imagine_Dragon = PlayList.generador_de_listas("artist", "Imagine Dragons")
 cantidad_temas_Imagine_Dragons= PlayList.list_cant_item("artist", "Imagine Dragons")
+ordenarporaño = AnalicisArchivo.ordenar_lista("year released")
+duracionporanio1 = [AnalicisArchivo.año_con_mayor_duracion("year released")]
+duracionporanio2 = [AnalicisArchivo.año_con_mayor_duracion_1("year released")]
+duracionporgenero = [AnalicisArchivo.genero_de_mayor_duracion("top genre")]
+duracionporgenero_1 = [AnalicisArchivo.genero_de_mayor_duracion_1("top genre")]
+dance = PlayList.generador_de_listas("top genre", "dance pop")
+listcant = PlayList.list_cant_item("top genre", "dance pop")
+promediogenero = AnalicisArchivo.promediogenero("top genre", "dance pop")
+
 
 
     
@@ -112,3 +201,16 @@ cantidad_temas_Imagine_Dragons= PlayList.list_cant_item("artist", "Imagine Drago
 #print(canciones_de_Imagine_Dragon)
 
 #print(f"la cantidad de temas de Imagine Dragons son {cantidad_temas_Imagine_Dragons}")
+
+#print(AnalicisArchivo.año_con_mayor_duracion("year released"))
+
+#print(duracionporanio1)
+
+#print(duracionporanio2)
+
+print(duracionporgenero)
+
+#"print(duracionporgenero_1)
+
+#print(promediogenero)
+
