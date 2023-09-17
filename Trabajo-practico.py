@@ -1,6 +1,9 @@
 import pandas as pd
 import numpy as np
 import datetime as dt
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 pd.DataFrame()
 
 nombre_archivo = "Spotify 2010 - 2021 Top 100.csv"
@@ -135,7 +138,12 @@ class AnalicisArchivo():
     
     
     
-    
+    def evoluciongenero(filtro):
+        dato = list(data[filtro].unique())
+        dato = sorted(dato)
+        return dato   
+        
+        print(AnalicisArchivo.evoluciongenero("year released")) 
          
      
          
@@ -208,7 +216,7 @@ promediogenero = AnalicisArchivo.promediogenero("top genre", "dance pop")
 
 #print(duracionporanio2)
 
-print(duracionporgenero)
+#print(duracionporgenero)
 
 #"print(duracionporgenero_1)
 
