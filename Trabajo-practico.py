@@ -146,7 +146,9 @@ class AnalicisArchivo():
         print(AnalicisArchivo.evoluciongenero("year released")) 
          
      
-         
+    def generorock(filtro):
+        listarock = data[data[filtro].str.contains("rock", case= False)][filtro].unique()
+        return listarock
 
         
 
@@ -174,6 +176,7 @@ duracionporgenero_1 = [AnalicisArchivo.genero_de_mayor_duracion_1("top genre")]
 dance = PlayList.generador_de_listas("top genre", "dance pop")
 listcant = PlayList.list_cant_item("top genre", "dance pop")
 promediogenero = AnalicisArchivo.promediogenero("top genre", "dance pop")
+generos_rock = AnalicisArchivo.generorock("top genre")
 
 
 
@@ -221,4 +224,6 @@ promediogenero = AnalicisArchivo.promediogenero("top genre", "dance pop")
 #"print(duracionporgenero_1)
 
 #print(promediogenero)
+
+#print(generos_rock)
 
