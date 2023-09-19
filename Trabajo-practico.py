@@ -59,7 +59,7 @@ class AnalicisArchivo():
         
     def generos(columna):
         cant_genero = data[columna].value_counts()
-        return 
+        return cant_genero
     
     def ordenar_lista (filtro):
        list_ord = data.sort_values(by=filtro)
@@ -149,7 +149,7 @@ class AnalicisArchivo():
     def generorock(filtro):
         listarock = data[data[filtro].str.contains("rock", case= False)][filtro].unique()
         return listarock
-
+ 
         
 
         
@@ -159,27 +159,27 @@ indie = PlayList.generador_de_listas("top genre", "indie rock")
 indie_duracion = PlayList.calcula_duracion("top genre", "indie rock")
 indie_ordenada = PlayList.ordenar_lista("top genre", "indie rock", "title", "desendente")
 indie_ordenada1 = PlayList.ordenar_lista("top genre", "indie rock", "artist", "asendente")
-indie_cantidad_temas = PlayList.list_cant_item("top genre", "indie rock")
+indie_cantidad_temas = PlayList.list_cant_item("top genre", "dance pop")
 lista_generica = PlayList.lista_generica()
 lista_by_artista =PlayList.generador_de_listas("artist", "Eminem")
-hip_hop_cant_temas = PlayList.list_cant_item("top genre", "hip hop")
+hip_hop_cant_temas = PlayList.list_cant_item("top genre", "dance pop")
 genero_mas_usado = AnalicisArchivo.generos("top genre")
 artista_mas_aparece= AnalicisArchivo.generos("artist")
 tema_mayor_duracion = AnalicisArchivo.ordenar_lista("dur")
 canciones_de_Imagine_Dragon = PlayList.generador_de_listas("artist", "Imagine Dragons")
-cantidad_temas_Imagine_Dragons= PlayList.list_cant_item("artist", "Imagine Dragons")
+cantidad_temas_Imagine_Dragons= PlayList.list_cant_item("artist", "Marshmello")
 ordenarporaño = AnalicisArchivo.ordenar_lista("year released")
 duracionporanio1 = [AnalicisArchivo.año_con_mayor_duracion("year released")]
 duracionporanio2 = [AnalicisArchivo.año_con_mayor_duracion_1("year released")]
 duracionporgenero = [AnalicisArchivo.genero_de_mayor_duracion("top genre")]
 duracionporgenero_1 = [AnalicisArchivo.genero_de_mayor_duracion_1("top genre")]
 dance = PlayList.generador_de_listas("top genre", "dance pop")
-listcant = PlayList.list_cant_item("top genre", "dance pop")
+listcant = PlayList.list_cant_item("top genre", "hip hop")
 promediogenero = AnalicisArchivo.promediogenero("top genre", "dance pop")
 generos_rock = AnalicisArchivo.generorock("top genre")
 
 
-
+#print(listcant)
     
 #print(leer_archivo(nombre_archivo))  
   
@@ -219,11 +219,13 @@ generos_rock = AnalicisArchivo.generorock("top genre")
 
 #print(duracionporanio2)
 
-#print(duracionporgenero)
+print(duracionporgenero)
 
 #"print(duracionporgenero_1)
 
 #print(promediogenero)
 
 #print(generos_rock)
+
+#print(dance)
 
