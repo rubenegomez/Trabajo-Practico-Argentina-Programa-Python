@@ -50,7 +50,7 @@ class PlayList():
         return lista_ordenada
     
     def list_cant_item(filtro, filtro1):
-        cantidad = len(data[data[filtro]== filtro1]["title"].to_list())
+        cantidad = len(data[data[filtro]== filtro1]["title"].to_list()).idxmax()
         return cantidad
     
 class AnalicisArchivo():
